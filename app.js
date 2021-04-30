@@ -2,8 +2,8 @@
 
         state = {
             newName: "",
-            newComment: "",
-            history: []
+            newMessage: "",
+            comments: [`name: ${newName}, message: ${newMessage}`]
         }
 
         changeName = (event) => {
@@ -12,20 +12,19 @@
             })
         }
     
-        changeComment = (event) => {
+        changeMessage = (event) => {
             this.setState({
-            newComment: event.target.value,
+            newMessage: event.target.value,
             })
         }
-    
     
         keepHistory = (event) => {
             event.preventDefault();
     
-        let allInformations = [...this.state.history, this.state.newName, this.state.newComment]
+        let allInformations = [...this.state.history, [this.state.newName, this.state.newMessage]]
     
         this.setState({
-            history: allInformations
+            comments: allInformations
         })
     
     }
@@ -43,7 +42,7 @@
                     </div>
                     <div>
                         <textarea name="" id="" placeholder="Your comment"
-                        onChange={this.changeComment} value={this.state.newComment}></textarea>
+                        onChange={this.changeMessage} value={this.state.newMessage}></textarea>
                     </div>
                     <div>
                         <input onClick={this.keepHistory} type="submit" value="Comment"/>
