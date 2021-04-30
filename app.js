@@ -1,10 +1,12 @@
     class App extends React.Component {
 
+
         state = {
             newName: "",
             newMessage: "",
-            comments: [`name: ${newName}, message: ${newMessage}`]
+            comments: [`name: ... , message: ...`]
         }
+
 
         changeName = (event) => {
             this.setState({
